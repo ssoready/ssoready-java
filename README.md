@@ -35,7 +35,7 @@ Instantiate and use the client with the following:
 import com.ssoready.api.SSOReady;
 
 SSOReady ssoready = SSOReady.builder()
-  .apiKey("YOUR_API_KEY") // defaults to System.getenv("AMPLITUDE_API_KEY")
+  .apiKey("YOUR_API_KEY") // defaults to System.getenv("SSOREADY_API_KEY")
   .build();
 
 RedeemSamlAccessCodeRequest createRequest = RedeemSamlAccessCodeRequest.builder()
