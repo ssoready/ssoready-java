@@ -75,42 +75,6 @@ try {
 
 ## Advanced
 
-### Proxies
-
-Use the `.proxy()` method to set a custom proxy when using the SDK. 
-
-```java
-import com.ssoready.api.SSOReady;
-import java.net.Proxy;
-
-SSOReady ssoready = SSOReady.builder()
-  .apiKey("YOUR_API_KEY") 
-  .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxyHost", proxyPort)))        
-  .build();
-```
-
-### Batching
-
-The SDK will batch your events and send them on a regular interval or after a certain 
-number of events have been created. 
-
-```java
-import com.ssoready.api.SSOReady;
-import java.net.Proxy;
-
-SSOReady ssoready = SSOReady.builder()
-  .apiKey("YOUR_API_KEY")
-  .uploadThreshold(50) // Defaults to 10 events
-  .uploadPeriodInMillis(20_000) // Defaults to 10_000 milliseconds        
-  .build();
-```
-
-If you would like to flush events, the `flush` method is also exposed. 
-
-```java
-ssoready.flush();
-```
-
 ### Callbacks
 
 You can register `callbacks` with the SSOReady client and the callbacks will be invoked
