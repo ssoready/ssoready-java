@@ -25,6 +25,8 @@ public final class Organization {
 
     private final Optional<String> environmentId;
 
+    private final Optional<String> displayName;
+
     private final Optional<String> externalId;
 
     private final Optional<List<String>> domains;
@@ -34,11 +36,13 @@ public final class Organization {
     private Organization(
             Optional<String> id,
             Optional<String> environmentId,
+            Optional<String> displayName,
             Optional<String> externalId,
             Optional<List<String>> domains,
             Map<String, Object> additionalProperties) {
         this.id = id;
         this.environmentId = environmentId;
+        this.displayName = displayName;
         this.externalId = externalId;
         this.domains = domains;
         this.additionalProperties = additionalProperties;
@@ -58,6 +62,14 @@ public final class Organization {
     @JsonProperty("environmentId")
     public Optional<String> getEnvironmentId() {
         return environmentId;
+    }
+
+    /**
+     * @return An optional human-friendly name for this organization.
+     */
+    @JsonProperty("displayName")
+    public Optional<String> getDisplayName() {
+        return displayName;
     }
 
     /**
@@ -95,13 +107,14 @@ public final class Organization {
     private boolean equalTo(Organization other) {
         return id.equals(other.id)
                 && environmentId.equals(other.environmentId)
+                && displayName.equals(other.displayName)
                 && externalId.equals(other.externalId)
                 && domains.equals(other.domains);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.id, this.environmentId, this.externalId, this.domains);
+        return Objects.hash(this.id, this.environmentId, this.displayName, this.externalId, this.domains);
     }
 
     @java.lang.Override
@@ -119,6 +132,8 @@ public final class Organization {
 
         private Optional<String> environmentId = Optional.empty();
 
+        private Optional<String> displayName = Optional.empty();
+
         private Optional<String> externalId = Optional.empty();
 
         private Optional<List<String>> domains = Optional.empty();
@@ -131,6 +146,7 @@ public final class Organization {
         public Builder from(Organization other) {
             id(other.getId());
             environmentId(other.getEnvironmentId());
+            displayName(other.getDisplayName());
             externalId(other.getExternalId());
             domains(other.getDomains());
             return this;
@@ -158,6 +174,17 @@ public final class Organization {
             return this;
         }
 
+        @JsonSetter(value = "displayName", nulls = Nulls.SKIP)
+        public Builder displayName(Optional<String> displayName) {
+            this.displayName = displayName;
+            return this;
+        }
+
+        public Builder displayName(String displayName) {
+            this.displayName = Optional.ofNullable(displayName);
+            return this;
+        }
+
         @JsonSetter(value = "externalId", nulls = Nulls.SKIP)
         public Builder externalId(Optional<String> externalId) {
             this.externalId = externalId;
@@ -181,7 +208,7 @@ public final class Organization {
         }
 
         public Organization build() {
-            return new Organization(id, environmentId, externalId, domains, additionalProperties);
+            return new Organization(id, environmentId, displayName, externalId, domains, additionalProperties);
         }
     }
 }
