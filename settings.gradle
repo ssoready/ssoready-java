@@ -1,2 +1,3 @@
 rootProject.name = 'ssoready-java-sdk'
+
 include 'sample-app'
