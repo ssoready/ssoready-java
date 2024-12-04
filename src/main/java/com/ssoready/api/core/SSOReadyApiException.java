@@ -6,7 +6,7 @@ package com.ssoready.api.core;
 /**
  * This exception type will be thrown for any non-2XX API responses.
  */
-public class SsoreadyApiApiException extends SSOReadyException {
+public class SSOReadyApiException extends SSOReadyException {
     /**
      * The error code of the response that triggered the exception.
      */
@@ -17,7 +17,7 @@ public class SsoreadyApiApiException extends SSOReadyException {
      */
     private final Object body;
 
-    public SsoreadyApiApiException(String message, int statusCode, Object body) {
+    public SSOReadyApiException(String message, int statusCode, Object body) {
         super(message);
         this.statusCode = statusCode;
         this.body = body;
@@ -39,7 +39,7 @@ public class SsoreadyApiApiException extends SSOReadyException {
 
     @java.lang.Override
     public String toString() {
-        return "SsoreadyApiApiException{" + "message: " + getMessage() + ", statusCode: " + statusCode + ", body: "
-                + body + "}";
+        return "SSOReadyApiException{" + "message: " + getMessage() + ", statusCode: " + statusCode + ", body: " + body
+                + "}";
     }
 }

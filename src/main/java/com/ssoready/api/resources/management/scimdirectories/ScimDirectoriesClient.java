@@ -8,8 +8,8 @@ import com.ssoready.api.core.ClientOptions;
 import com.ssoready.api.core.MediaTypes;
 import com.ssoready.api.core.ObjectMappers;
 import com.ssoready.api.core.RequestOptions;
+import com.ssoready.api.core.SSOReadyApiException;
 import com.ssoready.api.core.SSOReadyException;
-import com.ssoready.api.core.SsoreadyApiApiException;
 import com.ssoready.api.resources.management.scimdirectories.requests.ScimDirectoriesListScimDirectoriesRequest;
 import com.ssoready.api.types.CreateScimDirectoryResponse;
 import com.ssoready.api.types.GetScimDirectoryResponse;
@@ -79,7 +79,7 @@ public class ScimDirectoriesClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), ListScimDirectoriesResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -133,7 +133,7 @@ public class ScimDirectoriesClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), CreateScimDirectoryResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -174,7 +174,7 @@ public class ScimDirectoriesClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), GetScimDirectoryResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -230,7 +230,7 @@ public class ScimDirectoriesClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), UpdateScimDirectoryResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -288,7 +288,7 @@ public class ScimDirectoriesClient {
                         responseBody.string(), RotateScimDirectoryBearerTokenResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));

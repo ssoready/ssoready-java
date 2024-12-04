@@ -8,8 +8,8 @@ import com.ssoready.api.core.ClientOptions;
 import com.ssoready.api.core.MediaTypes;
 import com.ssoready.api.core.ObjectMappers;
 import com.ssoready.api.core.RequestOptions;
+import com.ssoready.api.core.SSOReadyApiException;
 import com.ssoready.api.core.SSOReadyException;
-import com.ssoready.api.core.SsoreadyApiApiException;
 import com.ssoready.api.resources.management.setupurls.requests.CreateSetupUrlRequest;
 import com.ssoready.api.types.CreateSetupUrlResponse;
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class SetupUrlsClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), CreateSetupUrlResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));

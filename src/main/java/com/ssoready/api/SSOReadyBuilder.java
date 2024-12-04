@@ -6,7 +6,7 @@ package com.ssoready.api;
 import com.ssoready.api.core.ClientOptions;
 import com.ssoready.api.core.Environment;
 
-public final class SsoreadyApiClientBuilder {
+public final class SSOReadyBuilder {
     private ClientOptions.Builder clientOptionsBuilder = ClientOptions.builder();
 
     private String apiKey = System.getenv("SSOREADY_API_KEY");
@@ -17,27 +17,27 @@ public final class SsoreadyApiClientBuilder {
      * Sets apiKey.
      * Defaults to the SSOREADY_API_KEY environment variable.
      */
-    public SsoreadyApiClientBuilder apiKey(String apiKey) {
+    public SSOReadyBuilder apiKey(String apiKey) {
         this.apiKey = apiKey;
         return this;
     }
 
-    public SsoreadyApiClientBuilder environment(Environment environment) {
+    public SSOReadyBuilder environment(Environment environment) {
         this.environment = environment;
         return this;
     }
 
-    public SsoreadyApiClientBuilder url(String url) {
+    public SSOReadyBuilder url(String url) {
         this.environment = Environment.custom(url);
         return this;
     }
 
-    public SsoreadyApiClient build() {
+    public SSOReady build() {
         if (apiKey == null) {
             throw new RuntimeException("Please provide apiKey or set the SSOREADY_API_KEY environment variable.");
         }
         this.clientOptionsBuilder.addHeader("Authorization", "Bearer " + this.apiKey);
         clientOptionsBuilder.environment(this.environment);
-        return new SsoreadyApiClient(clientOptionsBuilder.build());
+        return new SSOReady(clientOptionsBuilder.build());
     }
 }

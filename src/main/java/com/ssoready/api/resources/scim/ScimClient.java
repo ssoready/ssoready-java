@@ -6,8 +6,8 @@ package com.ssoready.api.resources.scim;
 import com.ssoready.api.core.ClientOptions;
 import com.ssoready.api.core.ObjectMappers;
 import com.ssoready.api.core.RequestOptions;
+import com.ssoready.api.core.SSOReadyApiException;
 import com.ssoready.api.core.SSOReadyException;
-import com.ssoready.api.core.SsoreadyApiApiException;
 import com.ssoready.api.resources.scim.requests.ScimListScimGroupsRequest;
 import com.ssoready.api.resources.scim.requests.ScimListScimUsersRequest;
 import com.ssoready.api.types.GetScimGroupResponse;
@@ -82,7 +82,7 @@ public class ScimClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), ListScimGroupsResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -123,7 +123,7 @@ public class ScimClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), GetScimGroupResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -188,7 +188,7 @@ public class ScimClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), ListScimUsersResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -229,7 +229,7 @@ public class ScimClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), GetScimUserResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
