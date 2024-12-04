@@ -10,7 +10,7 @@ import com.ssoready.api.resources.saml.SamlClient;
 import com.ssoready.api.resources.scim.ScimClient;
 import java.util.function.Supplier;
 
-public class SsoreadyApiClient {
+public class SSOReady {
     protected final ClientOptions clientOptions;
 
     protected final Supplier<SamlClient> samlClient;
@@ -19,7 +19,7 @@ public class SsoreadyApiClient {
 
     protected final Supplier<ManagementClient> managementClient;
 
-    public SsoreadyApiClient(ClientOptions clientOptions) {
+    public SSOReady(ClientOptions clientOptions) {
         this.clientOptions = clientOptions;
         this.samlClient = Suppliers.memoize(() -> new SamlClient(clientOptions));
         this.scimClient = Suppliers.memoize(() -> new ScimClient(clientOptions));
@@ -38,7 +38,7 @@ public class SsoreadyApiClient {
         return this.managementClient.get();
     }
 
-    public static SsoreadyApiClientBuilder builder() {
-        return new SsoreadyApiClientBuilder();
+    public static SSOReadyBuilder builder() {
+        return new SSOReadyBuilder();
     }
 }

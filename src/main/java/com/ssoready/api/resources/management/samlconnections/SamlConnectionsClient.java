@@ -8,8 +8,8 @@ import com.ssoready.api.core.ClientOptions;
 import com.ssoready.api.core.MediaTypes;
 import com.ssoready.api.core.ObjectMappers;
 import com.ssoready.api.core.RequestOptions;
+import com.ssoready.api.core.SSOReadyApiException;
 import com.ssoready.api.core.SSOReadyException;
-import com.ssoready.api.core.SsoreadyApiApiException;
 import com.ssoready.api.resources.management.samlconnections.requests.SamlConnectionsListSamlConnectionsRequest;
 import com.ssoready.api.types.CreateSamlConnectionResponse;
 import com.ssoready.api.types.GetSamlConnectionResponse;
@@ -78,7 +78,7 @@ public class SamlConnectionsClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), ListSamlConnectionsResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -132,7 +132,7 @@ public class SamlConnectionsClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), CreateSamlConnectionResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -173,7 +173,7 @@ public class SamlConnectionsClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), GetSamlConnectionResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
@@ -229,7 +229,7 @@ public class SamlConnectionsClient {
                 return ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), UpdateSamlConnectionResponse.class);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
-            throw new SsoreadyApiApiException(
+            throw new SSOReadyApiException(
                     "Error with status code " + response.code(),
                     response.code(),
                     ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class));
