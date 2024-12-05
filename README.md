@@ -82,14 +82,14 @@ SAML and SCIM settings.
 To handle logins, you'll use SSOReady's [Redeem SAML Access
 Code](https://ssoready.com/docs/api-reference/saml/redeem-saml-access-code) endpoint:
 
-```csharp
+```java
 // this goes in your handler for POST /ssoready-callback
 RedeemSamlAccessCodeResponse redeemResponse = this.ssoready.saml().redeemSamlAccessCode(
-        RedeemSamlAccessCodeRequest
-                .builder()
-                .samlAccessCode("saml_access_code_...")
-                .build()
-).getEmail().orElseThrow();
+    RedeemSamlAccessCodeRequest
+        .builder()
+        .samlAccessCode("saml_access_code_...")
+        .build()
+);
 
 // log the user in as `redeemResponse.getEmail()` inside `redeemResponse.getOrganizationExternalId()`...
 ```
