@@ -46,19 +46,19 @@ java {
 
 group = 'com.ssoready'
 
-version = '0.1.7'
+version = '0.1.8'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
-    archiveBaseName = "ssoready-java-sdk"
+    archiveBaseName = "ssoready-java"
 }
 
 sourcesJar {
-    archiveBaseName = "ssoready-java-sdk"
+    archiveBaseName = "ssoready-java"
 }
 
 javadocJar {
-    archiveBaseName = "ssoready-java-sdk"
+    archiveBaseName = "ssoready-java"
 }
 
 signing {
@@ -76,8 +76,8 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.ssoready'
-            artifactId = 'ssoready-java-sdk'
-            version = '0.1.7'
+            artifactId = 'ssoready-java'
+            version = '0.1.8'
             from components.java
             pom {
                 name = 'SSOReady'
@@ -109,9 +109,9 @@ sonatypeCentralUpload {
     password = "$System.env.MAVEN_PASSWORD"
 
     archives = files(
-        "$buildDir/libs/ssoready-java-sdk-" + version + ".jar",
-        "$buildDir/libs/ssoready-java-sdk-" + version + "-sources.jar",
-        "$buildDir/libs/ssoready-java-sdk-" + version + "-javadoc.jar"
+        "$buildDir/libs/ssoready-java-" + version + ".jar",
+        "$buildDir/libs/ssoready-java-" + version + "-sources.jar",
+        "$buildDir/libs/ssoready-java-" + version + "-javadoc.jar"
     )
 
     pom = file("$buildDir/publications/maven/pom-default.xml")
