@@ -2,7 +2,7 @@
 
 # SSOReady-Java: SAML & SCIM for Java
 
-[![nuget shield](https://img.shields.io//maven-central/v/com.ssoready/ssoready-java)](https://central.sonatype.com/artifact/com.ssoready/ssoready-java)
+[![](https://img.shields.io/maven-central/v/com.ssoready/ssoready-java)](https://central.sonatype.com/artifact/com.ssoready/ssoready-java)
 
 `com.ssoready:ssoready-java` is a Java SDK for the [SSOReady](https://ssoready.com) API.
 
